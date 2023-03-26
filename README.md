@@ -1,6 +1,6 @@
 # your hackable terminal looking startpage
 
-#### suckless, *ad-free*, lightweight and looks freaking **cool**
+#### suckless, *ad-free*, lightweight, looks freaking **cool** and there is even a quote of the day
 
 it's all yours!
 
