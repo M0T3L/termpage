@@ -83,77 +83,12 @@
       </div>
     </div>
     <div class="icon-bar">
-      <a href="https://web.whatsapp.com"><img src="src/whatsapp.png"></a> 
-      <a href="https://open.spotify.com"><img src="src/spotify.png"></a> 
-      <a href="https://linkedin.com/in/yavuzbvrak"><img src="src/linkedin.png"></a> 
+      <a href="https://web.whatsapp.com"><img src="img/whatsapp.png"></a> 
+      <a href="https://open.spotify.com"><img src="img/spotify.png"></a> 
+      <a href="https://linkedin.com/in/yavuzbvrak"><img src="img/linkedin.png"></a> 
     </div>
-    <script>
-// The text to animate
-      const initialText = " hello w!@#$";
-      const promptText = " search something...";
-      const typingInterval = 100;
-      const deleteInterval = 50;
-// Get the input element and clear the placeholder text
-      const input = document.querySelector('input[type="text"]');
-      input.placeholder = "";
-// Start the typing animation
-      let i = 0;
-      const typeNextCharacter = () => {
-      let currentText = input.placeholder;
-      currentText += initialText[i];
-      input.placeholder = currentText;
-      i++;
-      if (i < initialText.length) {
-      setTimeout(typeNextCharacter, typingInterval);
-      } else {
-      setTimeout(deleteText, typingInterval * 3);
-      }
-      };
-// Delete the initial text
-      const deleteText = () => {
-      let currentText = input.placeholder;
-      currentText = currentText.slice(0, -1);
-      input.placeholder = currentText;
-      if (currentText.length > 0) {
-      setTimeout(deleteText, deleteInterval);
-      } else {
-      input.placeholder = "";
-      i = 0;
-      setTimeout(typePrompt, typingInterval * 3);
-      }
-      };
-// Type the prompt text
-      const typePrompt = () => {
-      let currentText = input.placeholder;
-      currentText += promptText[i];
-      input.placeholder = currentText;
-      i++;
-      if (i < promptText.length) {
-      setTimeout(typePrompt, typingInterval);
-      }
-      };
-      setTimeout(typeNextCharacter, typingInterval);
-    </script>
-    <script>
-      const updateDate = () => {
-      const dateElement = document.getElementById("date");
-      const currentDate = new Date();
-      const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-      const dateString = currentDate.toLocaleDateString(undefined, options).replace(/\//g, '-');
-      dateElement.textContent = dateString;
-      };
-      updateDate();
-    </script>
-    <script>
-      const updateQuote = async () => {
-      const quoteElement = document.getElementById("quote");
-      const response = await fetch("https://quotes.rest/qod");
-      const data = await response.json();
-      const quote = data.contents.quotes[0].quote;
-      const author = data.contents.quotes[0].author;
-      quoteElement.textContent = `"${quote}" - ${author}`;
-      };
-      updateQuote();
-    </script>
+    <script src="js/search.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/quote.js"></script>
   </body>
 </html>
