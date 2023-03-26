@@ -1,2 +1,6 @@
 # your hackable terminal looking startpage
-#### suckless, ad-free, lightweight and looks freaking cool
+#### suckless, *ad-free*, lightweight and looks freaking **cool**
+---
+## preview (beta)
+![ss](screenshot.jpg)
+---
