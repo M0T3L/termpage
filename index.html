@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[terminal:~]$</title>
+    <style>
+      body {
+        background-color: black;
+        font-family: monospace;
+        font-size: 24px;
+        overflow: hidden;
+      }
+      #terminal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: text;
+      }
+      #terminal-text {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+      #terminal-text span {
+        margin-right: 5px;
+      }
+      input[type="text"] {
+        background-color: transparent;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        border: none;
+        outline: none;
+        width: 100%;
+        margin-left: 5px;
+      }
+      #date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 19px;
+        color: white;
+      }
+      #quote {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 19px; color: white;
+      }
+      .icon-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: black;
+        z-index: 99;
+      }
+      .icon-bar a {
+        display: inline-block;
+        margin: 8px;
+        font-size: 24px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      .icon-bar a:hover {
+        transform: translateY(-4px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="quote"></div>
+    <div id="date"></div>
+    <div id="terminal">
+      <div id="terminal-text">
+        <span>$</span>
+        <form id="search" action="https://duckduckgo.com/">
+          <input type="text" name="q" placeholder="" autofocus>
+        </form>
+      </div>
+    </div>
+    <div class="icon-bar">
+      <a href="https://web.whatsapp.com"><img src="src/whatsapp.png"></a> 
+      <a href="https://open.spotify.com"><img src="src/spotify.png"></a> 
+      <a href="https://linkedin.com/in/yavuzbvrak"><img src="src/linkedin.png"></a> 
+    </div>
+    <script>
+// The text to animate
+      const initialText = " hello w!@#$";
+      const promptText = " search something...";
+      const typingInterval = 100;
+      const deleteInterval = 50;
+// Get the input element and clear the placeholder text
+      const input = document.querySelector('input[type="text"]');
+      input.placeholder = "";
+// Start the typing animation
+      let i = 0;
+      const typeNextCharacter = () => {
+      let currentText = input.placeholder;
+      currentText += initialText[i];
+      input.placeholder = currentText;
+      i++;
+      if (i < initialText.length) {
+      setTimeout(typeNextCharacter, typingInterval);
+      } else {
+      setTimeout(deleteText, typingInterval * 3);
+      }
+      };
+// Delete the initial text
+      const deleteText = () => {
+      let currentText = input.placeholder;
+      currentText = currentText.slice(0, -1);
+      input.placeholder = currentText;
+      if (currentText.length > 0) {
+      setTimeout(deleteText, deleteInterval);
+      } else {
+      input.placeholder = "";
+      i = 0;
+      setTimeout(typePrompt, typingInterval * 3);
+      }
+      };
+// Type the prompt text
+      const typePrompt = () => {
+      let currentText = input.placeholder;
+      currentText += promptText[i];
+      input.placeholder = currentText;
+      i++;
+      if (i < promptText.length) {
+      setTimeout(typePrompt, typingInterval);
+      }
+      };
+      setTimeout(typeNextCharacter, typingInterval);
+    </script>
+    <script>
+      const updateDate = () => {
+      const dateElement = document.getElementById("date");
+      const currentDate = new Date();
+      const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+      const dateString = currentDate.toLocaleDateString(undefined, options).replace(/\//g, '-');
+      dateElement.textContent = dateString;
+      };
+      updateDate();
+    </script>
+    <script>
+      const updateQuote = async () => {
+      const quoteElement = document.getElementById("quote");
+      const response = await fetch("https://quotes.rest/qod");
+      const data = await response.json();
+      const quote = data.contents.quotes[0].quote;
+      const author = data.contents.quotes[0].author;
+      quoteElement.textContent = `"${quote}" - ${author}`;
+      };
+      updateQuote();
+    </script>
+  </body>
+</html>
