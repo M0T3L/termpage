@@ -2,74 +2,7 @@
 <html>
   <head>
     <title>[terminal:~]$</title>
-    <style>
-      body {
-        background-color: black;
-        font-family: monospace;
-        font-size: 24px;
-        overflow: hidden;
-      }
-      #terminal {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        border: none;
-        outline: none;
-        color: white;
-        cursor: text;
-      }
-      #terminal-text {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-      }
-      #terminal-text span {
-        margin-right: 5px;
-      }
-      input[type="text"] {
-        background-color: transparent;
-        color: inherit;
-        font-family: inherit;
-        font-size: inherit;
-        border: none;
-        outline: none;
-        width: 100%;
-        margin-left: 5px;
-      }
-      #date {
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-size: 19px;
-        color: white;
-      }
-      #quote {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 19px; color: white;
-      }
-      .icon-bar {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: black;
-        z-index: 99;
-      }
-      .icon-bar a {
-        display: inline-block;
-        margin: 8px;
-        font-size: 24px;
-        color: white;
-        transition: all 0.3s ease;
-      }
-      .icon-bar a:hover {
-        transform: translateY(-4px);
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <div id="quote"></div>
