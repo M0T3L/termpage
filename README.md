@@ -2,5 +2,5 @@
 #### suckless, *ad-free*, lightweight and looks freaking **cool**
 ---
 ## preview (beta)
-![ss](preview.jpg)
+![ss](preview.png)
 ---
