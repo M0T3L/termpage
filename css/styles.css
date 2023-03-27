@@ -46,6 +46,7 @@ position: absolute;
 top: 0;
 left: 0;
 font-size: 19px; color: white;
+width: 25%;
 }
 .icon-bar {
 position: fixed;
@@ -53,13 +54,20 @@ bottom: 0;
 width: 100%;
 background-color: black;
 z-index: 99;
+display: flex;
+align-items: center;
+justify-content: center;
 }
-.icon-bar a {
-display: inline-block;
-margin: 8px;
-font-size: 24px;
+.icon-bar h4 {
 color: white;
-transition: all 0.3s ease;
+font-size: 24px;
+margin-right: 10px;
+}
+.icons {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
 }
 .icon-bar a:hover {
 transform: translateY(-4px);
